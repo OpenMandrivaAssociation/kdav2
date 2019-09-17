@@ -3,11 +3,17 @@
 %define devname %mklibname KPimKDav2 -d
 # Doesn't follow usual versioning schemes yet -- always unstable for now
 %define stable unstable
+%define snapshot 20190917
 
 Name:		kdav2
-Version:	0.2.0
+Version:	0.3.1
+%if 0%{snapshot}
+Release:	0.%{snapshot}.1
+Source0:	%{name}-%{version}-%{snapshot}.tar.xz
+%else
 Release:	1
 Source0:	http://download.kde.org/%{stable}/kdav2/%{version}/src/%{name}-%{version}.tar.xz
+%endif
 Summary:	KDE library for accessing data over DAV
 URL: http://kde.org/
 License: GPL
@@ -41,8 +47,11 @@ Requires: %{libname} = %{EVRD}
 Development files (Headers etc.) for %{name}.
 
 %prep
-%setup -q
-%apply_patches
+%if 0%{snapshot}
+%autosetup -p1 -n %{name}-%{version}-%{snapshot}
+%else
+%autosetup -p1
+%endif
 %cmake_kde5
 
 %build
