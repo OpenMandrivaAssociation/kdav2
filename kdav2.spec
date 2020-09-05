@@ -3,13 +3,14 @@
 %define devname %mklibname KPimKDav2 -d
 # Doesn't follow usual versioning schemes yet -- always unstable for now
 %define stable unstable
-%define snapshot 20190917
+%define snapshot 20200905
 
 Name:		kdav2
 Version:	0.3.1
 %if 0%{snapshot}
+# https://invent.kde.org/pim/kdav2
 Release:	0.%{snapshot}.1
-Source0:	%{name}-%{version}-%{snapshot}.tar.xz
+Source0:	https://invent.kde.org/pim/kdav2/-/archive/master/kdav2-master.tar.bz2
 %else
 Release:	1
 Source0:	http://download.kde.org/%{stable}/kdav2/%{version}/src/%{name}-%{version}.tar.xz
@@ -48,7 +49,7 @@ Development files (Headers etc.) for %{name}.
 
 %prep
 %if 0%{snapshot}
-%autosetup -p1 -n %{name}-%{version}-%{snapshot}
+%autosetup -p1 -n %{name}-master
 %else
 %autosetup -p1
 %endif
