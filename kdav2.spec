@@ -3,17 +3,18 @@
 %define devname %mklibname KPimKDav2 -d
 # Doesn't follow usual versioning schemes yet -- always unstable for now
 %define stable unstable
-%define snapshot 20200905
+%define snapshot %{nil}
 
 Name:		kdav2
-Version:	0.3.1
+Version:	0.4.0
 %if 0%{snapshot}
 # https://invent.kde.org/pim/kdav2
 Release:	0.%{snapshot}.1
 Source0:	https://invent.kde.org/pim/kdav2/-/archive/master/kdav2-master.tar.bz2
 %else
 Release:	1
-Source0:	http://download.kde.org/%{stable}/kdav2/%{version}/src/%{name}-%{version}.tar.xz
+#Source0:	http://download.kde.org/%{stable}/kdav2/%{version}/src/%{name}-%{version}.tar.xz
+Source0:  https://invent.kde.org/pim/kdav2/-/archive/v%{version}/%{name}-v%{version}.tar.bz2
 %endif
 Summary:	KDE library for accessing data over DAV
 URL: http://kde.org/
@@ -48,11 +49,11 @@ Requires: %{libname} = %{EVRD}
 Development files (Headers etc.) for %{name}.
 
 %prep
-%if 0%{snapshot}
-%autosetup -p1 -n %{name}-master
-%else
-%autosetup -p1
-%endif
+#if 0%{snapshot}
+#autosetup -p1 -n %{name}-master
+#else
+%autosetup -p1 -n %{name}-v%{version}
+#endif
 %cmake_kde5
 
 %build
