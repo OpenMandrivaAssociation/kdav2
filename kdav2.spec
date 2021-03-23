@@ -52,7 +52,7 @@ Development files (Headers etc.) for %{name}.
 #if 0%{snapshot}
 #autosetup -p1 -n %{name}-master
 #else
-%autosetup -p1 -n %{name}-v{version}
+%autosetup -p1 -n %{name}-v%{version}
 #endif
 %cmake_kde5
 
