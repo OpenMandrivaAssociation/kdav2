@@ -12,7 +12,7 @@ Version:	0.4.0
 Release:	0.%{snapshot}.1
 Source0:	https://invent.kde.org/pim/kdav2/-/archive/master/kdav2-master.tar.bz2
 %else
-Release:	1
+Release:	2
 #Source0:	http://download.kde.org/%{stable}/kdav2/%{version}/src/%{name}-%{version}.tar.xz
 Source0:  https://invent.kde.org/pim/kdav2/-/archive/v%{version}/%{name}-v%{version}.tar.bz2
 %endif
