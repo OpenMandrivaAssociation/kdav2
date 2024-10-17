@@ -17,7 +17,7 @@ Release:	1
 Source0:  https://invent.kde.org/pim/kdav2/-/archive/v%{version}/%{name}-v%{version}.tar.bz2
 %endif
 Summary:	KDE library for accessing data over DAV
-URL: http://kde.org/
+URL: https://kde.org/
 License: GPL
 Group: System/Libraries
 BuildRequires: cmake(ECM)
